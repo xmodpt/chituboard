@@ -114,6 +114,8 @@ info "######    Please wait ##########"
 sudo dd bs=1M if=/dev/zero of=/piusb.bin count=$SIZE
 sudo mkdosfs /piusb.bin -F 32 -I
 
+# Create the mount point for the container file
+sudo mkdir /home/"${USER}"/.octoprint/uploads/resin
 echo "/piusb.bin            /home/${USER}/.octoprint/uploads/resin  vfat    users,uid=${USER},gid=${USER},umask=000   0       2 " >> /etc/fstab
 
 sudo mount -a
