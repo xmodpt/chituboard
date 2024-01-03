@@ -51,8 +51,8 @@ info "File is being run in $(pwd)"
 info "Which user account should the be installed in that contains your octoprint config?  The user may be ${ASSUMED_USER}."
 info "Please confirm this below or choose another user."
 info ""
-read -r user_input
 info "Press any key"
+read -r user_input
 
 USER="${user_input:-${DEFAULT_USER}}"
 
