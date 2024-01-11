@@ -2,16 +2,22 @@
 
 # ASCII Art Banner
 cat << "EOF"
+
+
+
    _____ _     _ _         _                         _ 
   / ____| |   (_) |       | |                       | |
  | |    | |__  _| |_ _   _| |__   ___   __ _ _ __ __| |
  | |    | '_ \| | __| | | | '_ \ / _ \ / _` | '__/ _` |
  | |____| | | | | |_| |_| | |_) | (_) | (_| | | | (_| |
   \_____|_| |_|_|\__|\__,_|_.__/ \___/ \__,_|_|  \__,_|
-                                                                                                      
-Instalation Script for Octoprint
+         ┬ ┌┐┌┌─┐┌┬┐┌─┐┬  ┬    ┌─┐┌─┐┬─┐┬┌─┐┌┬┐
+         │ │││└─┐ │ ├─┤│  │    └─┐│  ├┬┘│├─┘ │ 
+         ┴ ┘└┘└─┘ ┴ ┴ ┴┴─┘┴─┘  └─┘└─┘┴└─┴┴   ┴ 
+             Ver. 2      by CrAzZyRaBbIt           
+
 Created By Vikram Sarkhel AKA: rudetrooper
-https://github.com/rudetrooper/Octoprint-Chituboard                                                                                        
+    https://github.com/rudetrooper/Octoprint-Chituboard                                                                                       
 EOF
 
 # Exit on error
@@ -51,9 +57,9 @@ info "File is being run in $(pwd)"
 info "Which user account should the be installed in that contains your octoprint config?  The user may be ${ASSUMED_USER}."
 info "Please confirm this below or choose another user."
 info ""
-info "Press any key"
+info "Please TYPE the username you have created in Raspberry imager for the SSH connection"
+info "Default user: pi"
 read -r user_input
-
 USER="${user_input:-${DEFAULT_USER}}"
 
 info "User is: ${USER}"
@@ -64,16 +70,6 @@ echo "dtoverlay=dwc2,dr_mode=peripheral" >> /boot/config.txt
 echo "enable_uart=1" >> /boot/config.txt
 sudo sed -i 's/console=serial0,115200 //g' /boot/cmdline.txt
 echo -n " modules-load=dwc2" >> /boot/cmdline.txt
-
-# Setup 4 GB container file to for storing uploaded files
-#info
-#info "Setting up Pi-USB (4GB); this could take several minutes"
-#sudo dd bs=1M if=/dev/zero of=/piusb.bin count=4096
-#sudo mkdosfs /piusb.bin -F 32 -I
-# Create the mount point for the container file
-#sudo mkdir /home/"${USER}"/.octoprint/uploads/resin
-
-# ...
 
 # Setup container file for storing uploaded files
 info
