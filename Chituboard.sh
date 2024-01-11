@@ -58,7 +58,6 @@ info "Which user account should the be installed in that contains your octoprint
 info "Please confirm this below or choose another user."
 info ""
 info "Please TYPE the username you have created in Raspberry imager for the SSH connection"
-info "Default user: pi"
 read -r user_input
 USER="${user_input:-${DEFAULT_USER}}"
 
