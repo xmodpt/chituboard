@@ -57,7 +57,7 @@ info "File is being run in $(pwd)"
 info "Which user account should the be installed in that contains your octoprint config?  The user may be ${ASSUMED_USER}."
 info "Please confirm this below or choose another user."
 info ""
-info "Please TYPE the username you have created in Raspberry imager for the SSH connection"
+info "Please TYPE the username you have created in Raspberry imager for the SSH connection (default:   pi )"
 read -r user_input
 USER="${user_input:-${DEFAULT_USER}}"
 
